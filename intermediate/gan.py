@@ -35,8 +35,10 @@ batch_size = 100
 
 D = nn.Sequential(
     nn.Linear(784,256),
+    nn.BatchNorm2d(256),
     nn.LeakyReLU(0.2),
     nn.Linear(256,256),
+    nn.BatchNorm2d(256),
     nn.LeakyReLU(0.2),
     nn.Linear(256,1),
     nn.Sigmoid()
@@ -44,10 +46,13 @@ D = nn.Sequential(
 
 G = nn.Sequential(
     nn.Linear(64,256),
+    nn.BatchNorm2d(256),
     nn.LeakyReLU(0.2),
     nn.Linear(256,256),
+    nn.BatchNorm2d(256),
     nn.LeakyReLU(0.2,),
     nn.Linear(256,784),
+    nn.BatchNorm2d(784),
     nn.Tanh()
     )
 
